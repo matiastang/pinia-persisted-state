@@ -2,12 +2,12 @@
     "compilerOptions": {
         "noEmit": false,
         "declaration": true,
-        "declarationDir": "buildTypes",
+        "declarationDir": "types",
         "outDir": "buildJs",
         "rootDir": "./",
     },
     "include": ["./index.ts"],
-    "exclude": ["buildJs","buildTypes"]
+    "exclude": ["buildJs","types"]
 }
 /*
 noEmit , 若要导出d.ts文件，必须为false。否则会忽略declaration相关参数

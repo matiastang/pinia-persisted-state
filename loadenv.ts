@@ -2,7 +2,7 @@
  * @Author: matiastang
  * @Date: 2021-12-24 13:46:01
  * @LastEditors: matiastang
- * @LastEditTime: 2022-04-08 17:46:23
+ * @LastEditTime: 2024-07-16 17:49:50
  * @FilePath: /matias-pinia-persisted-state/loadenv.ts
  * @Description: 读取配置文件
  */
@@ -27,7 +27,7 @@ function parse(string: string) {
             const data = item.match(new RegExp(regExp))
             const key = data ? data[1].trim() : undefined
             const value = data ? data[2].trim() : undefined
-            key && (obj[key] = value)
+            key && (obj[key] = value || '')
         })
     return obj
 }

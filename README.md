@@ -2,9 +2,9 @@
  * @Author: matiastang
  * @Date: 2021-12-13 10:12:56
  * @LastEditors: matiastang
- * @LastEditTime: 2022-11-28 21:01:39
+ * @LastEditTime: 2024-07-16 18:07:36
  * @FilePath: /matias-pinia-persisted-state/README.md
- * @Description: datumwealth-vue-components
+ * @Description: README
 -->
 # matias-pinia-persisted-state
 
@@ -12,18 +12,22 @@
 
 `pinia`状态的本地持久化。
 
-## 安装与使用
-
-1. 安装`matias-pinia-persisted-state`
+## 安装
 
 * `pnpm`导入
-> $ pnpm add -D matias-pinia-persisted-state
+```sh
+$ pnpm add -D matias-pinia-persisted-state
+```
 * `yarn`导入
-> $ yarn add -D matias-pinia-persisted-state
-* `npm`导入
-> $ npm install -D matias-pinia-persisted-state
+```sh
+$ yarn add -D matias-pinia-persisted-state
+```
+* `npm`
+```sh
+$ npm install -D matias-pinia-persisted-state
+```
 
-2. 引用
+## 配置
 
 * 在`main.ts`中如下便捷导入`matias-pinia-persisted-state`：
 ```ts
@@ -43,6 +47,7 @@ console.log(persistedConfig)
 
 app.use(pinia)
 ```
+
 * 在`main.ts`中如下带配置导入`matias-pinia-persisted-state`：
 ```ts
 // pinia状态管理
@@ -69,7 +74,7 @@ app.use(pinia)
 * `persistedConfig.key`是本地持久化`key`，默认值是`pinia-key`。
 * `persistedConfig.customKey`是`custom properties`本地持久化`key`，默认值是`pinia-custom-key`。
 
-3. 使用
+## 使用
 
 完成引入后，则`pinia`的所有状态及更新都将保存到`storage`中。
 **注意**`custom properties`和`state properties`在赋值的时候才会同步到`storage`

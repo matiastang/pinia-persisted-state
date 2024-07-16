@@ -2,7 +2,7 @@
  * @Author: matiastang
  * @Date: 2022-02-09 17:17:20
  * @LastEditors: matiastang
- * @LastEditTime: 2022-11-28 22:01:32
+ * @LastEditTime: 2024-07-15 17:52:56
  * @FilePath: /matias-pinia-persisted-state/src/plugin/index.ts
  * @Description: pinia状态本地存储插件
  */
@@ -152,7 +152,8 @@ export function piniaPersistedState(context: PiniaPluginContext) {
     _localStateDiff(state, stateKey)
     context.store.$subscribe(
         () => {
-            // console.log('subscribe', stateKey)
+            console.log('subscribe', stateKey)
+            debugger
             const customProperties = _contextCustomProperties(context)
             const localState = localStorageRead<StateTree & PiniaCustomStateProperties<StateTree>>(
                 persistedKey
