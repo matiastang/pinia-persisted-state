@@ -2,7 +2,7 @@
  * @Author: matiastang
  * @Date: 2021-12-13 10:12:56
  * @LastEditors: matiastang
- * @LastEditTime: 2024-07-16 18:07:36
+ * @LastEditTime: 2024-07-16 18:22:46
  * @FilePath: /matias-pinia-persisted-state/README.md
  * @Description: README
 -->
@@ -162,7 +162,7 @@ testStore.userId = '002'
 testStore.simpleNumber = 100
 testStore.$state.hello = 'hello test'
 ```
-```json
+```ts
 {
     pinia-custom-key: {userId: "001", simpleNumber: 99}
     test: {data: "data", hello: "hello test"}
@@ -202,7 +202,7 @@ pinia.use(myPiniaPlugin)
 app.use(pinia)
 ```
 `storage`中的数据将更新。
-```json
+```ts
 {
     pinia-custom-key: {userId: "002", simpleNumber: 99}
     test: {data: "data", hello: "hello pinia"}
@@ -210,7 +210,13 @@ app.use(pinia)
 }
 ```
 有点儿说多了，只需要知道`matias-pinia-persisted-state`将持久化存储`pinia`中的数据就行。
+
 ## 版本
+
+### 0.2.1
+
+* 更新类型文件结构
+* 更新`matias-storage`存储库
 
 ### 0.2.0
 

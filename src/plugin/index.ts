@@ -2,7 +2,7 @@
  * @Author: matiastang
  * @Date: 2022-02-09 17:17:20
  * @LastEditors: matiastang
- * @LastEditTime: 2024-07-15 17:52:56
+ * @LastEditTime: 2024-07-16 18:28:21
  * @FilePath: /matias-pinia-persisted-state/src/plugin/index.ts
  * @Description: pinia状态本地存储插件
  */

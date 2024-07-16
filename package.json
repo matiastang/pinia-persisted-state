@@ -1,6 +1,6 @@
 {
     "name": "matias-pinia-persisted-state",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "description": "pinia状态持久化",
     "main": "./dist/index.umd.js",
     "files": [
