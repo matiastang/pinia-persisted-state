@@ -2,6 +2,22 @@
 
 本文件记录项目的全部版本变更。格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [0.3.1] - 未发布
+
+### Changed
+
+* 升级运行时依赖 [`matias-storage`](https://www.npmjs.com/package/matias-storage) `^0.2.0` → `^0.3.0`（插件源码零修改，API 向后兼容）
+
+### Added
+
+* 特殊类型无损持久化（由 matias-storage 0.3.0 序列化标签机制带来）：state 中的 `Date`/`Map`/`Set`/`BigInt`/`RegExp` 持久化后重启恢复为原类型实例，不再退化为字符串/空对象/序列化报错
+* 新增 5 例集成测试：0.2.0 旧格式数据（含失真 ISO 字符串日期）向后兼容恢复、特殊类型无损往返与存储标签格式断言、普通值格式不受标签污染、循环引用 state 写入不崩溃
+
+### Fixed
+
+* state 含 `BigInt` 时持久化在旧版会因 `JSON.stringify` 抛错导致整条记录写入失败，升级后写入正常（标签编码）
+* state 含循环引用时旧版持久化抛 `TypeError`（由框架吞掉），升级后存储层拒绝写入并告警，既有持久化数据保持不变
+
 ## [0.3.0] - 未发布
 
 ### Added
