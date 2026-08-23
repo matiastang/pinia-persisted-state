@@ -2,6 +2,12 @@
 
 本文件记录项目的全部版本变更。格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
+## [0.3.2] - 未发布
+
+### Added
+
+* tag 触发的 npm 自动发布 CI（`.github/workflows/npm-publish.yml`）：推送 `vX.Y.Z` 标签时自动执行完整质量门禁（类型检查/构建/单元集成测试/e2e）与 tag-版本一致性校验后发布到 npmjs.org，附带 npm provenance 溯源；npm 凭证使用仓库 Secret `NPM_TOKEN`。使用方式：本地 `npm version` 升版本并推送标签（`git push --follow-tags`）即可触发
+
 ## [0.3.1] - 未发布
 
 ### Changed

@@ -32,3 +32,7 @@ pinia 插件的状态的本地持久化
 ## v0.3.1
 
 升级项目中的依赖matias-storage为最新版本（目前是0.3.0）
+
+## v0.3.2
+
+添加 GitHub CI：当推送 tag（vX.Y.Z）时自动发布/更新 npm 包。发布前需通过完整质量门禁（类型检查、构建、单元/集成测试、e2e），并校验 tag 与 package.json 版本一致；npm 凭证使用仓库 Secret（NPM_TOKEN），不在代码中存储。
