@@ -95,3 +95,37 @@ $ npm publish --registry https://registry.npmjs.org --otp=******
 * `vite-plugin-compression`使用`GZIP`压缩
 * `rollup-plugin-terser`代码压缩，依赖`rollup`
 * `tslib`、`@types/node`
+
+## Spec Kit（规格驱动开发）
+
+项目使用[GitHub Spec Kit](https://github.com/github/spec-kit)管理迭代开发，`specify` CLI 由`uv`管理版本，Agent 集成为 ZCode（技能在`.zcode/skills/`）。
+
+### 安装/升级（uv 管理）
+
+```sh
+# 安装指定版本（当前项目使用 0.15.1）
+$ uv tool install specify-cli==0.15.1
+# 升级到最新版
+$ uv tool upgrade specify-cli
+# 版本与健康自检
+$ specify self check
+```
+
+升级 specify 后刷新项目模板：
+
+```sh
+$ specify init --here --integration zcode --force --ignore-agent-tools --script py
+```
+
+### 迭代工作流
+
+在 ZCode 中依次执行技能命令，规格产物存放在`specs/`目录并提交 git：
+
+1. `$speckit-constitution` — 项目原则（已完成，见`.specify/memory/constitution.md`）
+2. `$speckit-specify` — 新需求写规格（关注 what/why）
+3. `$speckit-clarify`（可选）— 结构化提问澄清规格
+4. `$speckit-plan` — 技术方案与架构
+5. `$speckit-tasks` — 任务拆解
+6. `$speckit-analyze`（可选）— 跨产物一致性检查
+7. `$speckit-implement` — 按任务实现
+8. `$speckit-converge` — 对照规格检查收敛，未完成项追加为任务
