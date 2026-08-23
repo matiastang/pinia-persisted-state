@@ -61,6 +61,17 @@ export let persistedConfig: PersistedStateConfig = {
 }
 
 /**
+ * 判断本地数据是否为可用的记录对象（非null的非数组对象）
+ * @param data
+ * @returns
+ */
+const _isRecordObject = (
+    data: unknown
+): data is StateTree & PiniaCustomStateProperties<StateTree> => {
+    return typeof data === 'object' && data !== null && !Array.isArray(data)
+}
+
+/**
  * 本地存储数据差异化检测，更新
  * @param state
  * @param key
@@ -74,8 +85,8 @@ const _localStateDiff = (
     const localState = localStorageRead<StateTree & PiniaCustomStateProperties<StateTree>>(
         persistedKey
     )
-    if (localState === null) {
-        // 初始化保存
+    if (!_isRecordObject(localState)) {
+        // 初始化保存（本地无数据或数据损坏/结构非法，均以初始值重建）
         localStorageWrite(persistedKey, {
             [stateKey]: state,
         })
@@ -156,8 +167,8 @@ export function piniaPersistedState(context: PiniaPluginContext) {
             const localState = localStorageRead<StateTree & PiniaCustomStateProperties<StateTree>>(
                 persistedKey
             )
-            if (localState === null) {
-                // 初始化保存
+            if (!_isRecordObject(localState)) {
+                // 初始化保存（本地无数据或结构非法时重建）
                 if (Object.keys(customProperties).length > 0) {
                     localStorageWrite(persistedKey, {
                         [customKey]: {
