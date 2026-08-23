@@ -49,7 +49,7 @@
     },
     "homepage": "https://github.com/matiastang/pinia-persisted-state#readme",
     "dependencies": {
-        "matias-storage": "^0.2.0",
+        "matias-storage": "^0.3.0",
         "pinia": "^2.0.23"
     },
     "devDependencies": {

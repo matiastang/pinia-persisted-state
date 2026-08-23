@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       matias-storage:
-        specifier: ^0.2.0
-        version: 0.2.0
+        specifier: ^0.3.0
+        version: 0.3.0
       pinia:
         specifier: ^2.0.23
         version: 2.1.7(typescript@5.5.3)(vue@3.4.31(typescript@5.5.3))
@@ -929,8 +929,8 @@ packages:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
 
-  matias-storage@0.2.0:
-    resolution: {integrity: sha512-Xsbv6j3WydsqioGqEztNjFAqxt7OcGoSYF6J9w1Y3X2zRchoBmGvXy8z41+whyB9XX+39tgSd7rHJdIgeOFlMg==}
+  matias-storage@0.3.0:
+    resolution: {integrity: sha512-RYmeXwb8TPepgi9sztQaAM+PaoPIM9OEkJ1g3PhUUo2QJHopJx/WU922fJsIgS8hrPGyHDAXOA+DI/797LITDA==}
 
   merge-stream@2.0.0:
     resolution: {integrity: sha512-abv/qOcuPfk3URPfDzmZU1LKmuw8kT+0nIHvKrKgFrwifol/doWcdA4ZqsWQ8ENrFKkd67Mfpo/LovbIUsbt3w==}
@@ -2222,7 +2222,7 @@ snapshots:
 
   math-intrinsics@1.1.0: {}
 
-  matias-storage@0.2.0: {}
+  matias-storage@0.3.0: {}
 
   merge-stream@2.0.0: {}
 
