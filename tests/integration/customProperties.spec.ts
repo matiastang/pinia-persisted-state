@@ -78,6 +78,23 @@ describe('custom properties缓存（B5 / FR-004）', () => {
         })
     })
 
+    it('仅修改custom properties不触发写入，随下一次state变更一并写入', async () => {
+        bootAppWith(piniaPersistedState, injectorPlugin)
+        const store = useUserStore()
+        // 只改custom property：不触发$subscribe，存储不更新
+        store.userId = 'changed-only'
+        await nextTick()
+        expect(readRecord(DEFAULT_KEY)[DEFAULT_CUSTOM_KEY]).toBeUndefined()
+
+        // 任意state变更后，custom properties最新值被一并写入
+        store.name = 'state-change'
+        await nextTick()
+        expect(readRecord(DEFAULT_KEY)[DEFAULT_CUSTOM_KEY]).toEqual({
+            userId: 'changed-only',
+            simpleNumber: 100,
+        })
+    })
+
     it('默认过滤规则排除$/_/set前缀的属性', async () => {
         bootAppWith(piniaPersistedState, injectorPlugin)
         const store = useUserStore()

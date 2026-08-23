@@ -47,9 +47,14 @@
                 <code>{{ persistedConfig.customKey }}</code> 子键，跨 store 全局共享。
                 （默认过滤 <code>$</code>/<code>_</code>/<code>set</code> 前缀属性）
             </p>
+            <p class="desc warn">
+                注意：custom properties 的修改<b>不直接触发存储写入</b>（pinia 订阅只监听
+                state 变化），将在<b>下一次任意 state 变更</b>时一并写入——修改后可到第 1
+                面板随便改一个 state，再到第 5 面板观察存储更新。
+            </p>
             <div class="row">
                 <label>userId（全局）</label>
-                <input data-testid="input-user-id" v-model="userId" @change="refreshStorage" />
+                <input data-testid="input-user-id" v-model="userId" @change="onUserIdChange" />
             </div>
             <div class="row">
                 <label>simpleNumber（全局）= {{ userStore.simpleNumber }}</label>
@@ -172,9 +177,15 @@ const onReset = () => {
     showMessage('user store 已重置为初始 state')
 }
 
+const onUserIdChange = () => {
+    showMessage('custom properties 已更新到 store（两 store 同步）；待下一次 state 变更时写入存储')
+}
+
 const onSimpleNumberIncrease = () => {
     userStore.simpleNumber += 1
-    showMessage(`simpleNumber = ${userStore.simpleNumber}`)
+    showMessage(
+        `simpleNumber = ${userStore.simpleNumber}（store 已更新；待下一次 state 变更时写入存储）`
+    )
 }
 
 const onClearStorage = () => {
@@ -276,6 +287,9 @@ onMounted(() => {
 .message {
     color: #d65928;
     margin: 8px 0 0;
+}
+.warn {
+    color: #b8860b;
 }
 code {
     background: #f0f0f0;
