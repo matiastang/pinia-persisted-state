@@ -32,3 +32,6 @@ package-lock.json
 yarn.lock
 
 *.sh
+
+# Python缓存
+__pycache__/
