@@ -1,18 +1,26 @@
-**[English](./README.md)** | [中文](./README.zh-CN.md)
+[English](./README.md) | **[中文](./README.zh-CN.md)**
 
+<!--
+ * @Author: matiastang
+ * @Date: 2021-12-13 10:12:56
+ * @LastEditors: matiastang
+ * @LastEditTime: 2026-08-23
+ * @FilePath: /pinia-persisted-state/README.zh-CN.md
+ * @Description: 中文说明文档
+-->
 # matias-pinia-persisted-state
 
-## Introduction
+## 说明
 
-Local persistence for `pinia` state.
+`pinia`状态的本地持久化。
 
-## Install
+## 安装
 
-* `pnpm`
+* `pnpm`导入
 ```sh
 $ pnpm add matias-pinia-persisted-state
 ```
-* `yarn`
+* `yarn`导入
 ```sh
 $ yarn add matias-pinia-persisted-state
 ```
@@ -21,11 +29,11 @@ $ yarn add matias-pinia-persisted-state
 $ npm install matias-pinia-persisted-state
 ```
 
-## Setup
+## 配置
 
-* Quick setup in `main.ts`:
+* 在`main.ts`中如下便捷导入`matias-pinia-persisted-state`：
 ```ts
-// pinia state management
+// pinia状态管理
 import { createPinia } from 'pinia'
 import { createPersistedState, persistedConfig } from 'matias-pinia-persisted-state'
 
@@ -34,17 +42,17 @@ const app = createApp(App)
 // pinia
 const pinia = createPinia()
 
-// Quick usage
+// 便捷使用
 pinia.use(createPersistedState)
-// View default config
+// 查看默认配置
 console.log(persistedConfig)
 
 app.use(pinia)
 ```
 
-* Setup with custom config in `main.ts`:
+* 在`main.ts`中如下带配置导入`matias-pinia-persisted-state`：
 ```ts
-// pinia state management
+// pinia状态管理
 import { createPinia } from 'pinia'
 import { createPersistedState, persistedConfig } from 'matias-pinia-persisted-state'
 
@@ -53,28 +61,28 @@ const app = createApp(App)
 // pinia
 const pinia = createPinia()
 
-// Usage with config
+// 带配置使用
 pinia.use(
     createPersistedState({
         key: 'pinia-key',
     })
 )
-// View config
+// 查看配置
 console.log(persistedConfig)
 
 app.use(pinia)
 ```
-* `persistedConfig` is the config of `matias-pinia-persisted-state`.
-* `persistedConfig.key` is the localStorage key for state persistence, default value is `pinia-key`.
-* `persistedConfig.customKey` is the localStorage key for `custom properties` persistence, default value is `pinia-custom-key`.
-* `persistedConfig.customFilterKey` is the filter function that decides which store members are cached as custom properties (by default, keys prefixed with `$`, `_` or `set` are excluded).
+* `persistedConfig`为`matias-pinia-persisted-state`的配置。
+* `persistedConfig.key`是本地持久化`key`，默认值是`pinia-key`。
+* `persistedConfig.customKey`是`custom properties`本地持久化`key`，默认值是`pinia-custom-key`。
+* `persistedConfig.customFilterKey`是判定 store 成员是否缓存为`custom properties`的过滤函数，默认排除`$`、`_`、`set`前缀的属性。
 
-## Usage
+## 使用
 
-Once set up, all pinia states and their updates are saved to `storage`.
-**Note**: `custom properties` and `state properties` are only synced to `storage` when they are assigned.
+完成引入后，则`pinia`的所有状态及更新都将保存到`storage`中。
+**注意**`custom properties`和`state properties`在赋值的时候才会同步到`storage`
 
-* Declare an `authUser Store` with initial values.
+* 声明`authUser Store`，带有初始化值。
 ```ts
 import { defineStore } from 'pinia'
 
@@ -95,7 +103,7 @@ export const useAuthUserStore = defineStore('user', {
     },
 })
 ```
-* Declare `custom properties`
+* 声明`custom properties`
 ```ts
 import 'pinia'
 import { Ref } from 'vue'
@@ -111,7 +119,7 @@ declare module 'pinia' {
     }
 }
 ```
-* Declare `state properties`
+* 声明`state properties`
 ```ts
 import 'pinia'
 import { Ref } from 'vue'
@@ -123,14 +131,14 @@ declare module 'pinia' {
     }
 }
 ```
-* Use and inspect the state
+* 使用并查看状态
 ```ts
 import { useAuthUserStore } from '@/pinia/useAuthUserStore'
 import { useTestStore } from '@/pinia/useTest'
 
 const userStore = useAuthUserStore()
 const testStore = useTestStore()
-// output
+// 输出
 console.log(
     userStore.simpleNumber,
     userStore.userId,
@@ -140,14 +148,14 @@ console.log(
     testStore.$state.hello
 )
 ```
-* Inspect the `pinia-key` data saved in `storage` **(or the key you configured)**
+* 查看`storage`中保存的`pinia-key`数据**如果配置了key则是对应的数据**
 ```json
 {
     test: {data: "data"}
     user: {name: "name", age: "age"}
 }
 ```
-**Note**: `custom properties` and `state properties` are only declarations. Data appears after assignment.
+**说明**`custom properties`和`state properties`中只是申明。所有需要赋值之后才能看到数据。
 ```ts
 userStore.userId = '001'
 userStore.simpleNumber = 99
@@ -164,20 +172,20 @@ testStore.$state.hello = 'hello test'
     user: {name: "name", age: "age", hello: "hello user"}
 }
 ```
-* As you can see, `custom properties` like `userId` and `simpleNumber` are updated identically through both `userStore` and `testStore` — they act as pinia global variables. Shared `state properties` like `hello` are controlled by each store itself. Since both stores share the same `hello` ref injected by a plugin, updating `context.store.$state.hello` updates it everywhere. Therefore you can write your own plugin placed after `matias-pinia-persisted-state` to initialize or update `state properties` globally.
+* 可以看到`userId`和`simpleNumber`这种`custom properties`使用`userStore`和`testStore`更新都是一样的，可以理解为`pinia`的全局变量。而`hello`这种共有`state properties`需要每个`store`自己控制。使用`context.store.$state.hello`可以修改所有`store`的`hello`熟悉。因此可以自己写一个插件放到`matias-pinia-persisted-state`该插件之后，全量初始或更新`state properties`中的数据。
 ```ts
 const userID = ref('000001')
 const hello = ref('hello pinia')
-// Custom base plugin, updates state
+// 自定义基础插件，更新状态
 export function myPiniaPlugin(context: PiniaPluginContext) {
-    // custom properties can also be handled inside plugins
+    // 当然插件里面也可以处理custom properties
     context.store.userId = userID
-    // assign
+    // 赋值
     context.store.$state.hello = hello
 }
 ```
 ```ts
-// pinia state management
+// pinia状态管理
 import { createPinia } from 'pinia'
 import { myPiniaPlugin } from '@/pinia/plugin'
 import { createPersistedState, persistedConfig } from 'matias-pinia-persisted-state'
@@ -187,16 +195,16 @@ const app = createApp(App)
 // pinia
 const pinia = createPinia()
 
-// Quick usage
+// 便捷使用
 pinia.use(createPersistedState)
-// View default config
+// 查看默认配置
 console.log(persistedConfig)
-// Plugin with state updates
+// 有状态更新的插件
 pinia.use(myPiniaPlugin)
 
 app.use(pinia)
 ```
-The data in `storage` will be updated.
+`storage`中的数据将更新。
 ```json
 {
     pinia-custom-key: {userId: "002", simpleNumber: 99}
@@ -204,19 +212,19 @@ The data in `storage` will be updated.
     user: {name: "name", age: "age", hello: "hello pinia"}
 }
 ```
-In short: `matias-pinia-persisted-state` persists the data inside your pinia stores.
+有点儿说多了，只需要知道`matias-pinia-persisted-state`将持久化存储`pinia`中的数据就行。
 
-## Testing
+## 测试
 
 ```sh
-$ pnpm run typecheck        # type check
-$ pnpm test                 # unit / integration tests
-$ pnpm run test:coverage    # coverage report
-$ pnpm run test:e2e         # e2e tests (starts the demo app automatically)
+$ pnpm run typecheck        # 类型检查
+$ pnpm test                 # 单元/集成测试
+$ pnpm run test:coverage    # 覆盖率报告
+$ pnpm run test:e2e         # 端到端测试（自动启动演示工程）
 ```
 
-See [specs/001-test-suite/quickstart.md](./specs/001-test-suite/quickstart.md) for details.
+详细说明见 [specs/001-test-suite/quickstart.md](./specs/001-test-suite/quickstart.md)。
 
-## Versions
+## 版本
 
-See [CHANGELOG.md](./CHANGELOG.md).
+版本更新记录见 [CHANGELOG.md](./CHANGELOG.md)。

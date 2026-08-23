@@ -6,10 +6,12 @@
 
 ### Added
 
-* 完整测试套件：36 例单元/集成/Use Case 测试（Vitest + Vue Test Utils）与 3 例端到端测试（Playwright，真实浏览器验证"修改 → 持久化 → 刷新 → 恢复"）
+* 完整测试套件：36 例单元/集成/Use Case 测试（Vitest + Vue Test Utils）与 5 例端到端测试（Playwright，真实浏览器验证"修改 → 持久化 → 刷新 → 恢复"与损坏数据自愈）
 * 库核心代码覆盖率 100%（语句/分支/函数/行），覆盖率阈值门槛纳入测试配置
 * GitHub Actions CI：master 推送与 PR 自动执行类型检查、构建、全部测试与 e2e
 * CHANGELOG.md 版本更新说明文件
+* README 双语：默认英文（README.md）+ 中文（README.zh-CN.md），顶部互链
+* 演示页面功能增强：state 修改（含 action/$patch/$reset）、custom properties、共有 state properties、store 状态与本地存储实时视图、边界操作（清空存储、写入非法 JSON 自愈）等测试面板
 * `typecheck` / `test` / `test:coverage` / `test:e2e` 脚本
 
 ### Fixed
