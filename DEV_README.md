@@ -2,51 +2,19 @@
  * @Author: matiastang
  * @Date: 2024-07-16 17:39:47
  * @LastEditors: matiastang
- * @LastEditTime: 2024-07-16 17:47:21
- * @FilePath: /matias-pinia-persisted-state/DEV_README.md
- * @Description: DEV_README
+ * @LastEditTime: 2026-08-23
+ * @FilePath: /pinia-persisted-state/DEV_README.md
+ * @Description: 维护者指南
 -->
-# matias-pinia-persisted-state
+# matias-pinia-persisted-state · 维护者指南
 
-`pinia`状态的本地持久化。
+面向项目维护者的开发、调试与发布说明。库的使用文档见 [README.md](./README.md)（英文默认）/ [README.zh-CN.md](./README.zh-CN.md)。
 
-## 指令
+## 常用命令
 
-```json
-{
-    "dev": "vite",
-    "typecheck": "tsc --noEmit -p src/plugin/tsconfig.json",
-    "test": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "test:e2e": "playwright test",
-    "ts:build": "tsc --build src/plugin/tsconfig.json",
-    "build": "vite --config vite.build.config.ts build --mode production",
-    "cp:types": "cp -r src/plugin/types dist/",
-    "cp:type": "cp src/plugin/types/index.d.ts dist",
-    "plugin:build": "pnpm run ts:build && pnpm run build && pnpm run cp:types",
-    "push:npm:package": "npm version patch && npm publish",
-    "updata:package": "npm publish --registry https://registry.npmjs.org",
-    "plugin:build:push:npm:package": "pnpm run plugin:build && pnpm run push:npm:package"
-}
-```
+全部脚本以 [package.json](./package.json) 为准（dev / typecheck / test / test:coverage / test:e2e / plugin:build / push:npm:package 等）。测试详细说明见 [specs/001-test-suite/quickstart.md](./specs/001-test-suite/quickstart.md)。
 
-### 运行测试
-
-```sh
-$ pnpm test                 # 单元/集成测试（Vitest）
-$ pnpm run test:e2e         # 端到端测试（首次需: pnpm exec playwright install chromium）
-$ pnpm run test:coverage    # 覆盖率（库核心100%门槛）
-```
-
-CI（GitHub Actions）在`master`推送与PR时自动执行：typecheck → plugin:build → test → e2e，见`.github/workflows/ci.yml`。
-
-### 运行测试项目
-
-```sh
-$ pnpm run dev
-```
-
-### 使用符号链接调试
+## 使用符号链接调试
 
 `node_modules`目录下执行链接
 ```sh
@@ -56,7 +24,7 @@ $ ln -s ~/matias/MT/MTGithub/npm/mt-storage/dist matias-storage
 **注意**`dist`的路径要更新为自己项目的路径，且`dist`要包含`package.json`文件。链接名称要和`package.json`中的一致。
 **注意**如果使用`npm`或`yarn`则可以使用`npm link`或`yarn link`来调试。
 
-### 发版/更新
+## 发版/更新
 
 #### 方式一
 
@@ -92,27 +60,9 @@ nrm use cnpmmirror
 $ npm publish --registry https://registry.npmjs.org --otp=******
 ```
 
-## 依赖文件
-
-### dependencies
-
-* `pinia`全局状态
-* `matias-storage`持久化
-
-### devDependencies
-
-* `vue`页面测试
-* `vue-router`页面路由
-* `vite`打包
-* `typescript`使用`ts`
-* `@vitejs/plugin-vue`解析`.vue`文件
-* `vite-plugin-compression`使用`GZIP`压缩
-* `rollup-plugin-terser`代码压缩，依赖`rollup`
-* `tslib`、`@types/node`
-
 ## Spec Kit（规格驱动开发）
 
-项目使用[GitHub Spec Kit](https://github.com/github/spec-kit)管理迭代开发，`specify` CLI 由`uv`管理版本，Agent 集成为 ZCode（技能在`.zcode/skills/`）。
+迭代开发使用[GitHub Spec Kit](https://github.com/github/spec-kit)管理，`specify` CLI 由`uv`管理版本，Agent 集成为 ZCode（技能在`.zcode/skills/`）。
 
 ### 安装/升级（uv 管理）
 
