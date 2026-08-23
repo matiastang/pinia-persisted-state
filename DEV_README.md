@@ -15,6 +15,10 @@
 ```json
 {
     "dev": "vite",
+    "typecheck": "tsc --noEmit -p src/plugin/tsconfig.json",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
     "ts:build": "tsc --build src/plugin/tsconfig.json",
     "build": "vite --config vite.build.config.ts build --mode production",
     "cp:types": "cp -r src/plugin/types dist/",
@@ -25,6 +29,16 @@
     "plugin:build:push:npm:package": "pnpm run plugin:build && pnpm run push:npm:package"
 }
 ```
+
+### 运行测试
+
+```sh
+$ pnpm test                 # 单元/集成测试（Vitest）
+$ pnpm run test:e2e         # 端到端测试（首次需: pnpm exec playwright install chromium）
+$ pnpm run test:coverage    # 覆盖率（库核心100%门槛）
+```
+
+CI（GitHub Actions）在`master`推送与PR时自动执行：typecheck → plugin:build → test → e2e，见`.github/workflows/ci.yml`。
 
 ### 运行测试项目
 

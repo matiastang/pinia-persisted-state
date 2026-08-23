@@ -211,54 +211,17 @@ app.use(pinia)
 ```
 有点儿说多了，只需要知道`matias-pinia-persisted-state`将持久化存储`pinia`中的数据就行。
 
+## 测试
+
+```sh
+$ pnpm run typecheck        # 类型检查
+$ pnpm test                 # 单元/集成测试
+$ pnpm run test:coverage    # 覆盖率报告
+$ pnpm run test:e2e         # 端到端测试（自动启动演示工程）
+```
+
+详细说明见 [specs/001-test-suite/quickstart.md](./specs/001-test-suite/quickstart.md)。
+
 ## 版本
 
-### 0.2.1
-
-* 更新类型文件结构
-* 更新`matias-storage`存储库
-
-### 0.2.0
-
-* `web storage`存储使用[`matias-storage`](https://www.npmjs.com/package/matias-storage)库
-* 添加`custom properties`的缓存
-* 移除`state`中必须包含`stateName`属性的限制，使用`store id`来保存对应的`store`
-* 更新丰富配置项
-
-### 0.1.8
-
-* fix
-  
-1. `store.$subscribe`添加`detached:true`。
-
-### 0.1.7
-
-1. `state`没有`stateName`属性添加提示。
-
-### 0.1.6
-
-* 开启代码压缩
-
-### 0.1.5
-
-* 目录结构调整
-
-### 0.1.4
-
-* 更新类型文件导出
-
-### 0.1.3
-
-* 更新`package.json`的导出目录
-
-### 0.1.2
-
-* 更新目录结构及名称
-
-### 0.1.1
-
-* 添加类型声明文件
-
-### 0.1.0
-
-* 实现基本的本地持久化功能
+版本更新记录见 [CHANGELOG.md](./CHANGELOG.md)。
