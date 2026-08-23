@@ -3,7 +3,7 @@
  * @Date: 2021-10-15 16:57:39
  * @LastEditors: matiastang
  * @LastEditTime: 2024-07-16 17:48:57
- * @FilePath: /matias-pinia-persisted-state/vite.config.ts
+ * @FilePath: /pinia-persisted-state/vite.config.ts
  * @Description: 开发/测试项目vite配置
  */
 // node路径

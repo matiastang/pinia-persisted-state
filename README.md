@@ -1,6 +1,6 @@
 **[English](./README.md)** | [中文](./README.zh-CN.md)
 
-# matias-pinia-persisted-state
+# pinia-persisted-state
 
 ## Introduction
 
@@ -10,15 +10,15 @@ Local persistence for `pinia` state.
 
 * `pnpm`
 ```sh
-$ pnpm add matias-pinia-persisted-state
+$ pnpm add pinia-persisted-state
 ```
 * `yarn`
 ```sh
-$ yarn add matias-pinia-persisted-state
+$ yarn add pinia-persisted-state
 ```
 * `npm`
 ```sh
-$ npm install matias-pinia-persisted-state
+$ npm install pinia-persisted-state
 ```
 
 ## Setup
@@ -27,7 +27,7 @@ $ npm install matias-pinia-persisted-state
 ```ts
 // pinia state management
 import { createPinia } from 'pinia'
-import { createPersistedState, persistedConfig } from 'matias-pinia-persisted-state'
+import { createPersistedState, persistedConfig } from 'pinia-persisted-state'
 
 const app = createApp(App)
 
@@ -46,7 +46,7 @@ app.use(pinia)
 ```ts
 // pinia state management
 import { createPinia } from 'pinia'
-import { createPersistedState, persistedConfig } from 'matias-pinia-persisted-state'
+import { createPersistedState, persistedConfig } from 'pinia-persisted-state'
 
 const app = createApp(App)
 
@@ -64,7 +64,7 @@ console.log(persistedConfig)
 
 app.use(pinia)
 ```
-* `persistedConfig` is the config of `matias-pinia-persisted-state`.
+* `persistedConfig` is the config of `pinia-persisted-state`.
 * `persistedConfig.key` is the localStorage key for state persistence, default value is `pinia-key`.
 * `persistedConfig.customKey` is the localStorage key for `custom properties` persistence, default value is `pinia-custom-key`.
 * `persistedConfig.customFilterKey` is the filter function that decides which store members are cached as custom properties (by default, keys prefixed with `$`, `_` or `set` are excluded).
@@ -164,7 +164,7 @@ testStore.$state.hello = 'hello test'
     user: {name: "name", age: "age", hello: "hello user"}
 }
 ```
-* As you can see, `custom properties` like `userId` and `simpleNumber` are updated identically through both `userStore` and `testStore` — they act as pinia global variables. Shared `state properties` like `hello` are controlled by each store itself. Since both stores share the same `hello` ref injected by a plugin, updating `context.store.$state.hello` updates it everywhere. Therefore you can write your own plugin placed after `matias-pinia-persisted-state` to initialize or update `state properties` globally.
+* As you can see, `custom properties` like `userId` and `simpleNumber` are updated identically through both `userStore` and `testStore` — they act as pinia global variables. Shared `state properties` like `hello` are controlled by each store itself. Since both stores share the same `hello` ref injected by a plugin, updating `context.store.$state.hello` updates it everywhere. Therefore you can write your own plugin placed after `pinia-persisted-state` to initialize or update `state properties` globally.
 ```ts
 const userID = ref('000001')
 const hello = ref('hello pinia')
@@ -180,7 +180,7 @@ export function myPiniaPlugin(context: PiniaPluginContext) {
 // pinia state management
 import { createPinia } from 'pinia'
 import { myPiniaPlugin } from '@/pinia/plugin'
-import { createPersistedState, persistedConfig } from 'matias-pinia-persisted-state'
+import { createPersistedState, persistedConfig } from 'pinia-persisted-state'
 
 const app = createApp(App)
 
@@ -204,7 +204,7 @@ The data in `storage` will be updated.
     user: {name: "name", age: "age", hello: "hello pinia"}
 }
 ```
-In short: `matias-pinia-persisted-state` persists the data inside your pinia stores.
+In short: `pinia-persisted-state` persists the data inside your pinia stores.
 
 ## Testing
 

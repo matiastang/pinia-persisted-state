@@ -6,6 +6,7 @@
 
 ### Added
 
+* 项目名称统一为 `pinia-persisted-state`（包名、README、文档、UMD 库名 `piniaPersistedState`、演示页与插件内 npm 链接）。注意：npm 包改名后需在新名字下重新发布，旧包 `matias-pinia-persisted-state` 不会自动迁移，建议后续在 npm 上将其标记 deprecated 指向新包
 * 完整测试套件：36 例单元/集成/Use Case 测试（Vitest + Vue Test Utils）与 5 例端到端测试（Playwright，真实浏览器验证"修改 → 持久化 → 刷新 → 恢复"与损坏数据自愈）
 * 库核心代码覆盖率 100%（语句/分支/函数/行），覆盖率阈值门槛纳入测试配置
 * GitHub Actions CI：master 推送与 PR 自动执行类型检查、构建、全部测试与 e2e

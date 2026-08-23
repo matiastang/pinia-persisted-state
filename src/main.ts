@@ -4,7 +4,7 @@
  * @LastEditTime: 2022-11-17 10:24:06
  * @LastEditors: matiastang
  * @Description: In User Settings Edit
- * @FilePath: /matias-pinia-persisted-state/src/main.ts
+ * @FilePath: /pinia-persisted-state/src/main.ts
  */
 import { createApp } from 'vue'
 import App from '@/App.vue'
@@ -15,7 +15,7 @@ import '@/pinia/customProperties'
 import '@/pinia/stateProperties'
 import { myPiniaPlugin } from '@/pinia/plugin'
 import { createPersistedState, piniaPersistedState, persistedConfig } from '@/plugin/index'
-// import { createPersistedState } from 'matias-pinia-persisted-state'
+// import { createPersistedState } from 'pinia-persisted-state'
 
 const app = createApp(App)
 

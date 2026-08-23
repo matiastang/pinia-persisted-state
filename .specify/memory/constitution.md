@@ -1,4 +1,4 @@
-# matias-pinia-persisted-state Constitution
+# pinia-persisted-state Constitution
 
 ## Core Principles
 

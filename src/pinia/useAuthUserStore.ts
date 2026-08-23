@@ -3,7 +3,7 @@
  * @Date: 2022-02-09 15:30:53
  * @LastEditors: matiastang
  * @LastEditTime: 2024-07-16 18:05:03
- * @FilePath: /matias-pinia-persisted-state/src/pinia/useAuthUserStore.ts
+ * @FilePath: /pinia-persisted-state/src/pinia/useAuthUserStore.ts
  * @Description: 用户权限store
  */
 import { defineStore } from 'pinia'

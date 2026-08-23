@@ -1,5 +1,5 @@
 {
-    "name": "matias-pinia-persisted-state",
+    "name": "pinia-persisted-state",
     "version": "0.2.1",
     "description": "pinia状态持久化",
     "main": "./dist/index.umd.js",
@@ -18,7 +18,7 @@
         "pinia",
         "matias",
         "matiastang",
-        "matias-pinia-persisted-state"
+        "pinia-persisted-state"
     ],
     "scripts": {
         "dev": "vite",

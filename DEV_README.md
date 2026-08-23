@@ -6,7 +6,7 @@
  * @FilePath: /pinia-persisted-state/DEV_README.md
  * @Description: 维护者指南
 -->
-# matias-pinia-persisted-state · 维护者指南
+# pinia-persisted-state · 维护者指南
 
 面向项目维护者的开发、调试与发布说明。库的使用文档见 [README.md](./README.md)（英文默认）/ [README.zh-CN.md](./README.zh-CN.md)。
 

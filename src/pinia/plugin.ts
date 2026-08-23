@@ -3,7 +3,7 @@
  * @Date: 2022-02-09 16:21:29
  * @LastEditors: matiastang
  * @LastEditTime: 2022-11-16 16:43:13
- * @FilePath: /matias-pinia-persisted-state/src/pinia/plugin.ts
+ * @FilePath: /pinia-persisted-state/src/pinia/plugin.ts
  * @Description: pinia 插件
  */
 import { PiniaPluginContext } from 'pinia'

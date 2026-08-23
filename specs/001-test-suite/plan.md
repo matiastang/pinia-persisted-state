@@ -6,7 +6,7 @@
 
 ## Summary
 
-为 `matias-pinia-persisted-state` 插件建立分层测试体系：以 Vitest（jsdom 环境）覆盖插件核心逻辑的单元与集成/Use Case 测试，以 Playwright 在真实浏览器中验证演示工程的"修改 → 持久化 → 刷新 → 恢复"端到端旅程，并配置 GitHub Actions CI 在 master 推送与 PR 时自动执行类型检查、构建与全部测试。测试中发现的插件缺陷按"一功能一 commit"修复并附回归测试。同时建立 CHANGELOG.md 版本更新说明。
+为 `pinia-persisted-state` 插件建立分层测试体系：以 Vitest（jsdom 环境）覆盖插件核心逻辑的单元与集成/Use Case 测试，以 Playwright 在真实浏览器中验证演示工程的"修改 → 持久化 → 刷新 → 恢复"端到端旅程，并配置 GitHub Actions CI 在 master 推送与 PR 时自动执行类型检查、构建与全部测试。测试中发现的插件缺陷按"一功能一 commit"修复并附回归测试。同时建立 CHANGELOG.md 版本更新说明。
 
 ## Technical Context
 

@@ -3,7 +3,7 @@
  * @Date: 2021-12-30 15:37:18
  * @LastEditors: matiastang
  * @LastEditTime: 2022-04-08 18:22:43
- * @FilePath: /matias-pinia-persisted-state/vite.build.config.ts
+ * @FilePath: /pinia-persisted-state/vite.build.config.ts
  * @Description: npm 打包上传配置
  */
 // vite配置文件vite.config.js
@@ -22,7 +22,7 @@ export default defineConfig({
     build: {
         lib: {
             entry: path.resolve(__dirname, './src/plugin/index.ts'),
-            name: 'matiasPiniaPersistedState',
+            name: 'piniaPersistedState',
             formats: ['es', 'cjs', 'umd', 'iife'],
             fileName: (format) => `index.${format}.js`,
         },

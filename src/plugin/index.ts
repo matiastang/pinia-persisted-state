@@ -3,13 +3,13 @@
  * @Date: 2022-02-09 17:17:20
  * @LastEditors: matiastang
  * @LastEditTime: 2024-07-16 18:28:21
- * @FilePath: /matias-pinia-persisted-state/src/plugin/index.ts
+ * @FilePath: /pinia-persisted-state/src/plugin/index.ts
  * @Description: pinia状态本地存储插件
  */
 import type { PiniaPluginContext, PiniaCustomStateProperties, StateTree } from 'pinia'
 import { localStorageRead, localStorageWrite } from 'matias-storage'
 
-const NPMLINK = 'https://www.npmjs.com/package/matias-pinia-persisted-state'
+const NPMLINK = 'https://www.npmjs.com/package/pinia-persisted-state'
 const PINIA_STORAGE_KEY = 'pinia-key'
 const PINIA_STORAGE_CUSTOM_KEY = 'pinia-custom-key'
 

@@ -8,7 +8,7 @@
 -->
 <template>
     <div class="demo-page">
-        <h1>matias-pinia-persisted-state 演示</h1>
+        <h1>pinia-persisted-state 演示</h1>
         <p class="tip">
             修改任意数据后，可在浏览器 DevTools → Application → Local Storage 中查看
             <code>{{ persistedConfig.key }}</code> 的实时变化；<b>刷新页面（F5）可验证数据恢复</b>。

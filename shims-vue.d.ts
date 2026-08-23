@@ -3,7 +3,7 @@
  * @Date: 2022-01-04 17:38:54
  * @LastEditors: matiastang
  * @LastEditTime: 2022-04-06 19:40:15
- * @FilePath: /matias-pinia-persisted-state/shims-vue.d.ts
+ * @FilePath: /pinia-persisted-state/shims-vue.d.ts
  * @Description: vue全局类型声明
  */
 /* eslint-disable */
