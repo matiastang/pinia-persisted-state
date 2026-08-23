@@ -16,15 +16,15 @@
 
 * `pnpm`导入
 ```sh
-$ pnpm add -D matias-pinia-persisted-state
+$ pnpm add matias-pinia-persisted-state
 ```
 * `yarn`导入
 ```sh
-$ yarn add -D matias-pinia-persisted-state
+$ yarn add matias-pinia-persisted-state
 ```
 * `npm`
 ```sh
-$ npm install -D matias-pinia-persisted-state
+$ npm install matias-pinia-persisted-state
 ```
 
 ## 配置

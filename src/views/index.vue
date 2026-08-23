@@ -57,4 +57,3 @@ const inputChange = (payload: Event) => {
     console.log(payload)
 }
 </script>
-<style lang="scss" scoped></style>

@@ -152,8 +152,6 @@ export function piniaPersistedState(context: PiniaPluginContext) {
     _localStateDiff(state, stateKey)
     context.store.$subscribe(
         () => {
-            console.log('subscribe', stateKey)
-            debugger
             const customProperties = _contextCustomProperties(context)
             const localState = localStorageRead<StateTree & PiniaCustomStateProperties<StateTree>>(
                 persistedKey

@@ -5,6 +5,7 @@
         "declarationDir": "types",
         "outDir": "buildJs",
         "rootDir": "./",
+        "skipLibCheck": true
     },
     "include": ["./index.ts"],
     "exclude": ["buildJs","types"]

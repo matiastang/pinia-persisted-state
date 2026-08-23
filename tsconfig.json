@@ -26,8 +26,7 @@
         "paths": {
             "@/*": ["src/*"],
         },
-        "lib": ["esnext", "es2020", "dom", "dom.iterable", "scripthost"],
-        "typeRoots": ["shims-vue.d.ts", "node_modules/@types"]// 声明文件目录，默认时node_modules/@types
+        "lib": ["esnext", "es2020", "dom", "dom.iterable", "scripthost"]
     },
     "files": ["shims-vue.d.ts"],
     "include": [
