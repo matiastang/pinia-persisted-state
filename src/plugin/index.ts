@@ -3,13 +3,13 @@
  * @Date: 2022-02-09 17:17:20
  * @LastEditors: matiastang
  * @LastEditTime: 2024-07-16 18:28:21
- * @FilePath: /matias-pinia-persisted-state/src/plugin/index.ts
+ * @FilePath: /pinia-persisted-state/src/plugin/index.ts
  * @Description: pinia状态本地存储插件
  */
 import type { PiniaPluginContext, PiniaCustomStateProperties, StateTree } from 'pinia'
 import { localStorageRead, localStorageWrite } from 'matias-storage'
 
-const NPMLINK = 'https://www.npmjs.com/package/matias-pinia-persisted-state'
+const NPMLINK = 'https://www.npmjs.com/package/pinia-persisted-state'
 const PINIA_STORAGE_KEY = 'pinia-key'
 const PINIA_STORAGE_CUSTOM_KEY = 'pinia-custom-key'
 
@@ -61,6 +61,17 @@ export let persistedConfig: PersistedStateConfig = {
 }
 
 /**
+ * 判断本地数据是否为可用的记录对象（非null的非数组对象）
+ * @param data
+ * @returns
+ */
+const _isRecordObject = (
+    data: unknown
+): data is StateTree & PiniaCustomStateProperties<StateTree> => {
+    return typeof data === 'object' && data !== null && !Array.isArray(data)
+}
+
+/**
  * 本地存储数据差异化检测，更新
  * @param state
  * @param key
@@ -74,8 +85,8 @@ const _localStateDiff = (
     const localState = localStorageRead<StateTree & PiniaCustomStateProperties<StateTree>>(
         persistedKey
     )
-    if (localState === null) {
-        // 初始化保存
+    if (!_isRecordObject(localState)) {
+        // 初始化保存（本地无数据或数据损坏/结构非法，均以初始值重建）
         localStorageWrite(persistedKey, {
             [stateKey]: state,
         })
@@ -152,14 +163,12 @@ export function piniaPersistedState(context: PiniaPluginContext) {
     _localStateDiff(state, stateKey)
     context.store.$subscribe(
         () => {
-            console.log('subscribe', stateKey)
-            debugger
             const customProperties = _contextCustomProperties(context)
             const localState = localStorageRead<StateTree & PiniaCustomStateProperties<StateTree>>(
                 persistedKey
             )
-            if (localState === null) {
-                // 初始化保存
+            if (!_isRecordObject(localState)) {
+                // 初始化保存（本地无数据或结构非法时重建）
                 if (Object.keys(customProperties).length > 0) {
                     localStorageWrite(persistedKey, {
                         [customKey]: {

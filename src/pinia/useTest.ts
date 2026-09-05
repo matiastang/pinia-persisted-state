@@ -3,7 +3,7 @@
  * @Date: 2022-03-18 17:27:11
  * @LastEditors: matiastang
  * @LastEditTime: 2022-11-28 22:00:48
- * @FilePath: /matias-pinia-persisted-state/src/pinia/useTest.ts
+ * @FilePath: /pinia-persisted-state/src/pinia/useTest.ts
  * @Description:
  */
 import { defineStore } from 'pinia'
