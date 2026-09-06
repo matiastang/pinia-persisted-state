@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 使用文档 / Documentation
+    url: https://github.com/matiastang/pinia-persisted-state#readme
+    about: 查看插件的安装、配置与 API 说明 / Check the README for installation, configuration and API

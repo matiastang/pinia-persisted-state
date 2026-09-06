@@ -1,0 +1,74 @@
+name: 🐛 Bug 报告 / Bug Report
+description: 报告插件使用中遇到的问题 / Report a problem with the plugin
+labels: [bug]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述 / Description
+      description: 简明扼要地描述遇到了什么问题 / A clear and concise description of the bug
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤 / Steps to Reproduce
+      description: 详细列出复现该问题的操作步骤 / Detailed steps to reproduce the issue
+      placeholder: |
+        1. 配置 persist 选项为 '...'
+        2. 刷新页面 / Reload the page
+        3. 观察到... / Observe that...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为 / Expected Behavior
+      description: 你期望发生什么 / What you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为 / Actual Behavior
+      description: 实际发生了什么（含报错信息、截图） / What actually happened (error messages, screenshots)
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境信息 / Environment
+      description: |
+        相关版本信息 / Relevant version information:
+        - 插件版本 / Plugin version: `pinia-persisted-state@x.x.x`
+        - Vue / Pinia 版本 / Vue & Pinia versions
+        - 运行环境 / Runtime: 浏览器及版本 / Node.js 版本
+        - 存储后端 / Storage backend: localStorage / sessionStorage / 其他 / others
+      placeholder: |
+        - pinia-persisted-state: v0.3.0
+        - vue: 3.x / pinia: 2.x
+        - Chrome 120 / Node.js 20
+        - localStorage
+    validations:
+      required: true
+
+  - type: input
+    id: repro-link
+    attributes:
+      label: 最小复现仓库 / Minimal Reproduction
+      description: 可复现问题的仓库或在线示例链接（如有）/ Link to a repo or sandbox reproducing the issue (if any)
+      placeholder: https://github.com/...
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 补充信息 / Additional Context
+      description: 其他有助于定位问题的信息（日志、配置片段等）/ Anything else that helps (logs, config snippets)
+    validations:
+      required: false
