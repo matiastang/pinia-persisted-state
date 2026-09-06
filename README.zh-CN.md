@@ -10,6 +10,8 @@
 -->
 # pinia-persisted-state
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 ## 说明
 
 `pinia`状态的本地持久化。
