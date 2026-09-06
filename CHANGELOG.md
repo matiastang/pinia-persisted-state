@@ -2,7 +2,7 @@
 
 本文件记录项目的全部版本变更。格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)。
 
-## [0.3.2] - 未发布
+## [0.3.2] - 2026-09-06
 
 ### Added
 
