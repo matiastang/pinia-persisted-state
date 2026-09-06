@@ -2,6 +2,8 @@
 
 # pinia-persisted-state
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 ## Introduction
 
 Local persistence for `pinia` state.
@@ -220,3 +222,7 @@ See [specs/001-test-suite/quickstart.md](./specs/001-test-suite/quickstart.md) f
 ## Versions
 
 See [CHANGELOG.md](./CHANGELOG.md).
+
+## License
+
+[MIT](./LICENSE) © matiastang

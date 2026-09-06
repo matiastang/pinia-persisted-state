@@ -10,6 +10,8 @@
 -->
 # pinia-persisted-state
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 ## 说明
 
 `pinia`状态的本地持久化。
@@ -228,3 +230,7 @@ $ pnpm run test:e2e         # 端到端测试（自动启动演示工程）
 ## 版本
 
 版本更新记录见 [CHANGELOG.md](./CHANGELOG.md)。
+
+## 许可证
+
+[MIT](./LICENSE) © matiastang
