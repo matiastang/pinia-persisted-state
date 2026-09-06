@@ -20,24 +20,24 @@
 
 * `pnpm`导入
 ```sh
-$ pnpm add pinia-persisted-state
+$ pnpm add @matiastang/pinia-persisted-state
 ```
 * `yarn`导入
 ```sh
-$ yarn add pinia-persisted-state
+$ yarn add @matiastang/pinia-persisted-state
 ```
 * `npm`
 ```sh
-$ npm install pinia-persisted-state
+$ npm install @matiastang/pinia-persisted-state
 ```
 
 ## 配置
 
-* 在`main.ts`中如下便捷导入`pinia-persisted-state`：
+* 在`main.ts`中如下便捷导入`@matiastang/pinia-persisted-state`：
 ```ts
 // pinia状态管理
 import { createPinia } from 'pinia'
-import { createPersistedState, persistedConfig } from 'pinia-persisted-state'
+import { createPersistedState, persistedConfig } from '@matiastang/pinia-persisted-state'
 
 const app = createApp(App)
 
@@ -52,11 +52,11 @@ console.log(persistedConfig)
 app.use(pinia)
 ```
 
-* 在`main.ts`中如下带配置导入`pinia-persisted-state`：
+* 在`main.ts`中如下带配置导入`@matiastang/pinia-persisted-state`：
 ```ts
 // pinia状态管理
 import { createPinia } from 'pinia'
-import { createPersistedState, persistedConfig } from 'pinia-persisted-state'
+import { createPersistedState, persistedConfig } from '@matiastang/pinia-persisted-state'
 
 const app = createApp(App)
 
@@ -74,7 +74,7 @@ console.log(persistedConfig)
 
 app.use(pinia)
 ```
-* `persistedConfig`为`pinia-persisted-state`的配置。
+* `persistedConfig`为`@matiastang/pinia-persisted-state`的配置。
 * `persistedConfig.key`是本地持久化`key`，默认值是`pinia-key`。
 * `persistedConfig.customKey`是`custom properties`本地持久化`key`，默认值是`pinia-custom-key`。
 * `persistedConfig.customFilterKey`是判定 store 成员是否缓存为`custom properties`的过滤函数，默认排除`$`、`_`、`set`前缀的属性。
@@ -174,7 +174,7 @@ testStore.$state.hello = 'hello test'
     user: {name: "name", age: "age", hello: "hello user"}
 }
 ```
-* 可以看到`userId`和`simpleNumber`这种`custom properties`使用`userStore`和`testStore`更新都是一样的，可以理解为`pinia`的全局变量。而`hello`这种共有`state properties`需要每个`store`自己控制。使用`context.store.$state.hello`可以修改所有`store`的`hello`熟悉。因此可以自己写一个插件放到`pinia-persisted-state`该插件之后，全量初始或更新`state properties`中的数据。
+* 可以看到`userId`和`simpleNumber`这种`custom properties`使用`userStore`和`testStore`更新都是一样的，可以理解为`pinia`的全局变量。而`hello`这种共有`state properties`需要每个`store`自己控制。使用`context.store.$state.hello`可以修改所有`store`的`hello`熟悉。因此可以自己写一个插件放到`@matiastang/pinia-persisted-state`该插件之后，全量初始或更新`state properties`中的数据。
 ```ts
 const userID = ref('000001')
 const hello = ref('hello pinia')
@@ -190,7 +190,7 @@ export function myPiniaPlugin(context: PiniaPluginContext) {
 // pinia状态管理
 import { createPinia } from 'pinia'
 import { myPiniaPlugin } from '@/pinia/plugin'
-import { createPersistedState, persistedConfig } from 'pinia-persisted-state'
+import { createPersistedState, persistedConfig } from '@matiastang/pinia-persisted-state'
 
 const app = createApp(App)
 
@@ -214,7 +214,7 @@ app.use(pinia)
     user: {name: "name", age: "age", hello: "hello pinia"}
 }
 ```
-有点儿说多了，只需要知道`pinia-persisted-state`将持久化存储`pinia`中的数据就行。
+有点儿说多了，只需要知道`@matiastang/pinia-persisted-state`将持久化存储`pinia`中的数据就行。
 
 ## 测试
 
