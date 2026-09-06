@@ -220,3 +220,7 @@ See [specs/001-test-suite/quickstart.md](./specs/001-test-suite/quickstart.md) f
 ## Versions
 
 See [CHANGELOG.md](./CHANGELOG.md).
+
+## License
+
+[MIT](./LICENSE) © matiastang

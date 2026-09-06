@@ -228,3 +228,7 @@ $ pnpm run test:e2e         # 端到端测试（自动启动演示工程）
 ## 版本
 
 版本更新记录见 [CHANGELOG.md](./CHANGELOG.md)。
+
+## 许可证
+
+[MIT](./LICENSE) © matiastang
