@@ -7,6 +7,7 @@
 ### Added
 
 * tag 触发的 npm 自动发布 CI（`.github/workflows/npm-publish.yml`）：推送 `vX.Y.Z` 标签时自动执行完整质量门禁（类型检查/构建/单元集成测试/e2e）与 tag-版本一致性校验后发布到 npmjs.org，附带 npm provenance 溯源；npm 凭证使用仓库 Secret `NPM_TOKEN`。使用方式：本地 `npm version` 升版本并推送标签（`git push --follow-tags`）即可触发
+* npm 包名调整为 `@matiastang/pinia-persisted-state`（原名 `pinia-persisted-state` 因与既有第三方包 `pinia-persistedstate` 过于相似被 npm 拒绝注册，改用 scope 包名），README 安装/导入示例、插件内 npm 链接同步更新
 
 ## [0.3.1] - 未发布
 

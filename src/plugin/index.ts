@@ -9,7 +9,7 @@
 import type { PiniaPluginContext, PiniaCustomStateProperties, StateTree } from 'pinia'
 import { localStorageRead, localStorageWrite } from 'matias-storage'
 
-const NPMLINK = 'https://www.npmjs.com/package/pinia-persisted-state'
+const NPMLINK = 'https://www.npmjs.com/package/@matiastang/pinia-persisted-state'
 const PINIA_STORAGE_KEY = 'pinia-key'
 const PINIA_STORAGE_CUSTOM_KEY = 'pinia-custom-key'
 

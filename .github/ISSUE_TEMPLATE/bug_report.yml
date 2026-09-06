@@ -44,12 +44,12 @@ body:
       label: 环境信息 / Environment
       description: |
         相关版本信息 / Relevant version information:
-        - 插件版本 / Plugin version: `pinia-persisted-state@x.x.x`
+        - 插件版本 / Plugin version: `@matiastang/pinia-persisted-state@x.x.x`
         - Vue / Pinia 版本 / Vue & Pinia versions
         - 运行环境 / Runtime: 浏览器及版本 / Node.js 版本
         - 存储后端 / Storage backend: localStorage / sessionStorage / 其他 / others
       placeholder: |
-        - pinia-persisted-state: v0.3.0
+        - @matiastang/pinia-persisted-state: v0.3.0
         - vue: 3.x / pinia: 2.x
         - Chrome 120 / Node.js 20
         - localStorage

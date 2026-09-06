@@ -1,5 +1,5 @@
 {
-    "name": "pinia-persisted-state",
+    "name": "@matiastang/pinia-persisted-state",
     "version": "0.3.2",
     "description": "pinia状态持久化",
     "main": "./dist/index.umd.js",
